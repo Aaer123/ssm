@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itheima.mapper.CustomerMapper">
+    <insert id="insert" parameterType="customer">
+        insert into t_user values (#{userid},#{kuser},#{ktelphone},#{khlb},#{khemial},#{khagt},#{kcreatetime})
+    </insert>
+
+    <select id="selects" parameterType="Integer" resultType="customer">
+        select * from t_user where userid=#{userid}
+    </select>
+</mapper>

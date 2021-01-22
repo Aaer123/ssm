@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itheima.mapper.GrossShopMapper">
+    <insert id="grosshopadd" parameterType="grossshop">
+      <selectKey keyProperty="ordergoods" resultType="java.lang.String" order="BEFORE">
+         select uuid()
+      </selectKey>
+        insert into SPJHD values (#{ordergoods},#{userid},#{kuser},
+        #{khlb},#{bookid},#{bookname},#{bookshopid},#{bookage},#{bboklb},
+        #{jhsl},#{jhje},#{jhzsl},#{jhtime},#{createtimes},#{namesss})
+    </insert>
+    <select id="grosshopselect" parameterType="java.lang.Integer" resultType="grossshop">
+        select * from spjhd where userid=#{userid}
+    </select>
+</mapper>
