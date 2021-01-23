@@ -38,7 +38,7 @@ public class StorageController {
     *
     * */
     @RequestMapping("addStorageshop")
-    public String addStorageshop(int userid) throws NullPointerException{
+    public String addStorageshop(int userid){
 
         /*从进货单Service层查询到客户id*/
         GrossShop grossShop = grossShopService.grosshopselect(userid);
@@ -59,15 +59,23 @@ public class StorageController {
             int jhsl = grossShop.getJhsl();
             //获取进货金额
             double jhje = grossShop.getJhje();
+            /**
+             * 条件：判断是否同个客户
+             * 商品数量累加
+            * */
+            if (grossShop.getKuser().equals(kuser)){
+                /*将商品进货信息存入库存表*/
+                storageMapper.addStorageshop(new Storage(bookid,bookname,userid,kuser,bookshopid,bookage,bboklb,jhsl+jhsl,jhje));
+                System.out.println("当前商品信息存入库存表");
+                return "toaddStorageshop";
+            }else if (!grossShop.getKuser().equals(kuser)){
+                System.out.println("不同客户"+grossShop.getKuser());
+            }
 
-
-            /*将商品进货信息存入库存表*/
-            storageMapper.addStorageshop(new Storage(bookid,bookname,userid,kuser,bookshopid,bookage,bboklb,jhsl,jhje));
-            System.out.println("当前商品信息存入库存表");
-            return "toaddStorageshop";
         }else{
             return "add";
         }
+        return "";
 
     }
 
