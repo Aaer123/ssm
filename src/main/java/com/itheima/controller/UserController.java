@@ -18,10 +18,6 @@ public class UserController {
     private UserService userService;
 
 
-    @RequestMapping("touser")
-    public String touser() {
-        return "user";
-    }
 
     @RequestMapping("login")
     public String login(String username, String password) {
@@ -29,9 +25,9 @@ public class UserController {
         System.out.println(username);
         System.out.println(password);
         if (user != null) {
-            return "redirect:user.do";
+            return "accountList";
         } else {
-            return "user";
+            return "login";
         }
     }
 
@@ -40,7 +36,9 @@ public class UserController {
         boolean register = userService.register(user);
         System.out.println(register);
         System.out.println(user);
-        return "toregister";
+        //注册成功：返回登录页面
+        //注册失败：返回注册页面
+        return userService.register(user)?"login":"register";
     }
 
     @RequestMapping("setPasswords")
