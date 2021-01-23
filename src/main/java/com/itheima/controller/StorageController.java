@@ -24,12 +24,19 @@ public class StorageController {
     private StorageMapper storageMapper;
 
 
-    /*进货数据层*/
+    /*进货数据层*//*
     @Autowired
-    private GrossShopMapper grossShopMapper;
+    private GrossShopMapper grossShopMapper;*/
 
 
-    /*功能实现：从进货单中查询到客户id，并且把商品进货单的信息及数量存入库存表*/
+    /**
+    *
+    *
+    * 功能实现：从进货单中查询到客户id，并且把商品进货单的信息及数量存入库存表
+    *
+    * 当要查询的对象为空时不要抛出空指针异常，这是记录异常问题解决
+    *
+    * */
     @RequestMapping("addStorageshop")
     public String addStorageshop(int userid) throws NullPointerException{
 

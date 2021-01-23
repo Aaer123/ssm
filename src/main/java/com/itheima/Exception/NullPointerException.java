@@ -6,17 +6,13 @@ package com.itheima.Exception;
  * */
 public class NullPointerException extends Exception {
 
-    private Exception e;
+    private String mac;
 
-    public NullPointerException(Exception e) {
-        this.e = e;
+    public String getMac() {
+        return mac;
     }
 
-    public Exception getE() {
-        return e;
-    }
-
-    public void setE(Exception e) {
-        this.e = e;
+    public void setMac(String mac) {
+        this.mac = mac;
     }
 }
