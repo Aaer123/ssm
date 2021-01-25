@@ -68,4 +68,9 @@ public class UserServiceImpl implements UserService {
     public List<User> findAlls() {
         return userMapper.findAlls();
     }
+
+    @Override
+    public List<User> seleces(int id) {
+        return userMapper.seleces(id);
+    }
 }

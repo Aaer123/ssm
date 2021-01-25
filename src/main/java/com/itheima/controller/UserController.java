@@ -10,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -26,8 +28,9 @@ public class UserController {
 
 
     @RequestMapping("login")
-    public String login(String username, String password) {
+    public String login(String username, String password,HttpSession session) {
         User user = userService.login(username, password);
+        session.setAttribute("user",user);
         System.out.println(username);
         System.out.println(password);
         if (user != null) {
@@ -71,6 +74,16 @@ public class UserController {
         modelAndView.addObject("userList",userList);
         modelAndView.setViewName("userList");
         System.out.println(userList);
+        return modelAndView;
+    }
+
+    @RequestMapping("seleces")
+    public ModelAndView seleces(int id){
+        List<User> selecesList = userService.seleces(id);
+        ModelAndView modelAndView=new ModelAndView();
+        modelAndView.addObject("selecesList",selecesList);
+        modelAndView.setViewName("selecesList");
+        System.out.println(selecesList);
         return modelAndView;
     }
 }

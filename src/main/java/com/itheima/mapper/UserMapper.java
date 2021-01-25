@@ -18,6 +18,8 @@ public interface UserMapper {
 
     void userDelete(String username);//删除
 
-    List<User> findAlls();//返回集合类型
+    List<User> findAlls();//查询所有返回集合类型
+
+    List<User> seleces(int id);
 
 }

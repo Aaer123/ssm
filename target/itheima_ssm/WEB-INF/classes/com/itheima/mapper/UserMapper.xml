@@ -21,4 +21,7 @@
     <select id="findAlls" resultType="user">
         select * from User
     </select>
+    <select id="seleces" parameterType="java.lang.Integer" resultType="user">
+        select * from User where id=#{id}
+    </select>
 </mapper>

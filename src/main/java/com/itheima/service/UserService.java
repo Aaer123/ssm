@@ -18,5 +18,7 @@ public interface UserService {
 
     List<User> findAlls();//查询所有
 
+    List<User> seleces(int id);
+
 
 }
