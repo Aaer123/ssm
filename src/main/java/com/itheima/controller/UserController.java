@@ -25,7 +25,7 @@ public class UserController {
 
 
     @RequestMapping("login")
-    public String login(String username, String password) {
+    public String login(String username, String password,ModelAndView modelAndView) {
         User user = userService.login(username, password);
         System.out.println(username);
         System.out.println(password);
