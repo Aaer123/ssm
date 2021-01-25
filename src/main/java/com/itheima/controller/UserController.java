@@ -4,6 +4,7 @@ package com.itheima.controller;
 import com.itheima.domain.User;
 import com.itheima.mapper.UserMapper;
 import com.itheima.service.UserService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,12 +26,12 @@ public class UserController {
 
 
     @RequestMapping("login")
-    public String login(String username, String password,ModelAndView modelAndView) {
+    public String login(String username, String password) {
         User user = userService.login(username, password);
         System.out.println(username);
         System.out.println(password);
         if (user != null) {
-            return "accountList";
+            return "userList";
         } else {
             return "login";
         }
@@ -44,7 +45,7 @@ public class UserController {
         System.out.println(user);
         //注册成功：返回登录页面
         //注册失败：返回注册页面
-        return userService.register(user)?"login":"register";
+        return userService.register(user)?"register":"login";
     }
 
     @RequestMapping("setPasswords")
