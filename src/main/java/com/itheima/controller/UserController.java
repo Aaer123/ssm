@@ -34,7 +34,7 @@ public class UserController {
         System.out.println(username);
         System.out.println(password);
         if (user != null) {
-            return "userList";
+            return "List";
         } else {
             return "login";
         }
