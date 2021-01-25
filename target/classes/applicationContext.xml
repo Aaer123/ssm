@@ -41,4 +41,25 @@ http://www.springframework.org/schema/context/spring-context.xsd">
      <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
          <property name="basePackage" value="com.itheima.mapper"></property>
      </bean>
+
+     <!--声明式事务控制-->
+     <!--平台事务管理器-->
+     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+         <property name="dataSource" ref="dataSource"></property>
+     </bean>
+
+     <!--配置事务增强-->
+     <tx:advice id="txAdvice">
+         <tx:attributes>
+             <tx:method name="*"/>
+         </tx:attributes>
+     </tx:advice>
+
+
+     <!--事务的aop织入-->
+     <aop:config>
+         <aop:advisor advice-ref="txAdvice" pointcut="execution(* com.itheima.service.impl.*.*(..))"></aop:advisor>
+     </aop:config>
+
+
 </beans>

@@ -13,8 +13,7 @@ public interface GrossShopMapper {
     *
     *根据客户id查询进货单
     *
-    *
-     * @return*/
+    */
     GrossShop grosshopselect(int userid);
 }
 

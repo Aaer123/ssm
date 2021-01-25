@@ -62,21 +62,19 @@ public class StorageController {
             /**
              * 条件：判断是否同个客户
              * 商品数量累加
-            * */
-            if (grossShop.getKuser().equals(kuser)){
+             *
+             * 数据不能互通；一个客户一个空间
+             *
+             *
+             * */
                 /*将商品进货信息存入库存表*/
-                storageMapper.addStorageshop(new Storage(bookid,bookname,userid,kuser,bookshopid,bookage,bboklb,jhsl+jhsl,jhje));
+                storageMapper.addStorageshop(new Storage(bookid,bookname,userid,kuser,bookshopid,bookage,bboklb,jhsl,jhje));
                 System.out.println("当前商品信息存入库存表");
                 return "toaddStorageshop";
-            }else if (!grossShop.getKuser().equals(kuser)){
-                System.out.println("不同客户"+grossShop.getKuser());
-            }
 
         }else{
+
             return "add";
         }
-        return "";
-
     }
-
 }

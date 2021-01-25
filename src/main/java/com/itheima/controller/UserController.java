@@ -2,6 +2,7 @@ package com.itheima.controller;
 
 
 import com.itheima.domain.User;
+import com.itheima.mapper.UserMapper;
 import com.itheima.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,10 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    /*注入用户数据层*/
+    @Autowired
+    private UserMapper userMapper;
 
 
 
@@ -33,6 +38,7 @@ public class UserController {
 
     @RequestMapping("register")
     public String register(User user){
+
         boolean register = userService.register(user);
         System.out.println(register);
         System.out.println(user);
