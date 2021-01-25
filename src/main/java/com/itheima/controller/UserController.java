@@ -43,9 +43,9 @@ public class UserController {
         boolean register = userService.register(user);
         System.out.println(register);
         System.out.println(user);
-        //注册成功：返回登录页面
         //注册失败：返回注册页面
-        return userService.register(user)?"register":"login";
+        //注册成功：返回登录页面
+        return userService.register(user)?"register":"login";//三元运算
     }
 
     @RequestMapping("setPasswords")
