@@ -2,6 +2,8 @@ package com.itheima.mapper;
 
 import com.itheima.domain.GrossShop;
 
+import java.util.List;
+
 public interface GrossShopMapper {
 
     /**
@@ -14,6 +16,6 @@ public interface GrossShopMapper {
     *根据客户id查询进货单
     *
     */
-    GrossShop grosshopselect(int userid);
+    List<GrossShop> grosshopselect(int userid);
 }
 

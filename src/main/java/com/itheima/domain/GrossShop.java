@@ -1,11 +1,16 @@
 package com.itheima.domain;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.Date;
 
 /*
 * 进货单
 * */
 public class GrossShop {
+
+    /*@Autowired
+    private  Storage storage;*/
 
     private String ordergoods;//商品订单编号默认是UUID
 

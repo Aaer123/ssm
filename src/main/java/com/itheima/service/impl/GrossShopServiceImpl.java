@@ -9,6 +9,8 @@ import com.itheima.service.GrossShopService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service(value = "grossShopService")
 public class GrossShopServiceImpl implements GrossShopService {
@@ -21,13 +23,14 @@ public class GrossShopServiceImpl implements GrossShopService {
     //添加方法
     @Override
     public void grosshopadd(GrossShop grossShop) {
-         grossShopMapper.grosshopadd(grossShop);
+        grossShopMapper.grosshopadd(grossShop);
     }
 
     @Override
-    public GrossShop grosshopselect(int id) {
-        GrossShop grossShop=grossShopMapper.grosshopselect(id);
-        return grossShop;
+    public List<GrossShop> grosshopselect(int userid) {
+        List<GrossShop> grossShopList = grossShopMapper.grosshopselect(userid);
+        return grossShopList;
     }
+
 
 }

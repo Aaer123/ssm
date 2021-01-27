@@ -12,11 +12,17 @@
         <th>用户账号</th>
         <th>用户密码</th>
     </tr>
+
+    <c:forEach var="user" items="${userList}">
+
+
         <tr>
-            <td>${sessionScope.user.id}</td>
-            <td>${sessionScope.user.username}</td>
-            <td>${sessionScope.user.password}</td>
+            <td>${user.id}</td>
+            <td>${user.username}</td>
+            <td>${user.password}</td>
         </tr>
+
+    </c:forEach>
 </table>
 </body>
 </html>

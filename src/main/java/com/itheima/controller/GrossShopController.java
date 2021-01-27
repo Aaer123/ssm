@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 
 @Controller
@@ -30,9 +33,12 @@ public class GrossShopController {
         return "togross";
     }
     @RequestMapping("grosshopselect")
-    public String grosshopselect(int userid){
-        GrossShop grossShop = grossShopService.grosshopselect(userid);
-        System.out.println(grossShop);
-        return "togrosshopselect";
+    public ModelAndView grosshopselect(int userid){
+        List<GrossShop> grossShopList = grossShopService.grosshopselect(userid);
+        ModelAndView modelAndView=new ModelAndView();
+        modelAndView.addObject("grossShopList",grossShopList);
+        modelAndView.setViewName("grossShopList");
+        System.out.println(grossShopList);
+        return modelAndView;
     }
 }

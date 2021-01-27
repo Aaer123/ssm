@@ -16,6 +16,17 @@ public class StorageServiceImpl implements StorageService {
     public void addStorageshop(Storage storage) {
         storageMapper.addStorageshop(storage);
     }
+
+    @Override
+    public Storage findStorage(int userid, String bookshopid) {
+        Storage storage = storageMapper.findStorage(userid, bookshopid);
+        return storage;
+    }
+
+    @Override
+    public void updateStorageshop(Storage storage) {
+        storageMapper.updateStorageshop(storage);
+    }
 }
 
 

@@ -5,7 +5,7 @@ package com.itheima.domain;
 * */
 public class User {
 
-    private int id;
+    private Integer id;
 
     private String username;
 
@@ -20,7 +20,7 @@ public class User {
         this.password = password;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
