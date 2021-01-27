@@ -40,7 +40,7 @@ public class StorageController {
      * session 存单个用户；ModelAndView：存放多个，适合用集合
      */
     @RequestMapping("addStorageshop")
-    public String addStorageshop(@Param("userid") int userid) {
+    public String addStorageshop(int userid) {
         /*从进货单Service层查询到客户id*/
         List<GrossShop> grossShopList = grossShopService.grosshopselect(userid);
         if (grossShopList != null) {
