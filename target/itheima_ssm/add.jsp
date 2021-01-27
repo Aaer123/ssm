@@ -13,7 +13,7 @@
 <body>
 <h1>库存表</h1>
 <form action="${pageContext.request.contextPath}/storage/addStorageshop">
-    <input type="text" name="userid"><br>
+    <input type="text" name="userid" placeholder="输入不能为空,请输入数字"><br>
     <input type="submit" value="查询">
 </form>
 </body>
