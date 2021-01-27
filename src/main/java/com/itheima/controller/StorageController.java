@@ -80,7 +80,8 @@ public class StorageController {
                  *    ②、在mapper在定义一个修改方法：void updateStorageshop（Storage storage）
                  *
                  *
-                 *    第三种方案：进货单——————入库单，直接在GrossShop注入入库表做关联，查询到storageId获取单据
+                 *    第三种方案：
+                 *    ①、进货单——————入库单，直接在GrossShop注入入库表做关联，查询到storageId获取单据
                  *
                  *
                  * */
@@ -98,7 +99,7 @@ public class StorageController {
 
                 return "toaddStorageshop";
 
-        }else{
+            }else{
 
             return "add";*/
                 Storage storage = storageMapper.findStorage(userid, bookshopid);
