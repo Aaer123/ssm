@@ -23,10 +23,11 @@
     <delete id="userDelete" parameterType="String">
         delete from User where username=#{username}
     </delete>
-    <!---->
+    <!--查询所有用户-->
     <select id="findAlls" resultType="user">
         select * from User
     </select>
+    <!--根据id查询用户-->
     <select id="seleces" parameterType="java.lang.Integer" resultType="user">
         select * from User where id=#{id}
     </select>

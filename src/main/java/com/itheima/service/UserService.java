@@ -10,7 +10,7 @@ public interface UserService {
 
     boolean register(User user);//注册
 
-    void getUser(String username);//注册是否有同名
+    User getUser(String username);//注册是否有同名
 
     boolean setPasswords(User user);//修改密码
 
